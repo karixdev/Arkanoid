@@ -10,13 +10,13 @@ Paddle::Paddle(float x, float y)
 	shape.setOutlineColor(OUTLINE_COLOR);
 }
 
-void Paddle::update(float deltaTime, const sf::RenderWindow& window)
+void Paddle::update(float deltaTime)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && canMoveLeft()) {
 		shape.move(-SPEED * deltaTime, 0);
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && canMoveRight(window)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && canMoveRight()) {
 		shape.move(SPEED * deltaTime, 0);
 	}
 }
@@ -31,8 +31,8 @@ bool Paddle::canMoveLeft()
 	return shape.getPosition().x > WINDOW_BOUNDARY_MARGIN;
 }
 
-bool Paddle::canMoveRight(const sf::RenderWindow& window)
+bool Paddle::canMoveRight()
 {
 	// left edge position + paddle width < window width
-	return shape.getPosition().x + shape.getSize().x < window.getSize().x - WINDOW_BOUNDARY_MARGIN;
+	return shape.getPosition().x + shape.getSize().x < 600 - WINDOW_BOUNDARY_MARGIN;
 }

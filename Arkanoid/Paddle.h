@@ -6,14 +6,14 @@ class Paddle
 public:
 	Paddle(float x, float y);
 
-	void update(float deltaTime, const sf::RenderWindow& window);
+	void update(float deltaTime);
 	void draw(sf::RenderWindow& window);
 
 private:
 	sf::RectangleShape shape;
 
 	bool canMoveLeft();
-	bool canMoveRight(const sf::RenderWindow& window);
+	bool canMoveRight();
 
 	const float SPEED = .5f;
 

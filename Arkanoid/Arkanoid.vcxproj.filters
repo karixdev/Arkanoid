@@ -25,6 +25,12 @@
     <Filter Include="Pliki nagłówkowe\GUI">
       <UniqueIdentifier>{97c336dc-d3d8-455f-ba10-654d1f7f344a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\Resources">
+      <UniqueIdentifier>{5f38fd93-026d-4a13-9230-8018c966499f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Resources">
+      <UniqueIdentifier>{7a79726d-b223-486f-9e56-ad2551028e57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
