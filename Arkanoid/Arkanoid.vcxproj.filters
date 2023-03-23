@@ -25,18 +25,27 @@
     <Filter Include="Pliki nagłówkowe\GUI">
       <UniqueIdentifier>{97c336dc-d3d8-455f-ba10-654d1f7f344a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki źródłowe\Resources">
-      <UniqueIdentifier>{5f38fd93-026d-4a13-9230-8018c966499f}</UniqueIdentifier>
+    <Filter Include="Pliki źródłowe\GameObjects">
+      <UniqueIdentifier>{14e50fe3-5cfb-4312-8a9b-003dab940974}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\Resources">
-      <UniqueIdentifier>{7a79726d-b223-486f-9e56-ad2551028e57}</UniqueIdentifier>
+    <Filter Include="Pliki nagłówkowe\GameObjects">
+      <UniqueIdentifier>{609a1499-40d3-4df6-b622-e90d9b3287f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Levels">
+      <UniqueIdentifier>{053fea36-bd93-4258-96b9-54fffcba32c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Levels">
+      <UniqueIdentifier>{309ce09f-0005-47be-81f1-aab78f5e6af4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Configs">
+      <UniqueIdentifier>{c436c98f-6173-4a78-be33-6f441f46c43e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Configs">
+      <UniqueIdentifier>{708429e3-3838-4f09-80b6-0d64850ff0e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Paddle.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
@@ -54,11 +63,29 @@
     <ClCompile Include="Button.cpp">
       <Filter>Pliki źródłowe\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="Paddle.cpp">
+      <Filter>Pliki źródłowe\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Brick.cpp">
+      <Filter>Pliki źródłowe\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Pliki źródłowe\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="BrickConfigLoader.cpp">
+      <Filter>Pliki źródłowe\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Pliki źródłowe\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.cpp">
+      <Filter>Pliki źródłowe\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowConfig.cpp">
+      <Filter>Pliki źródłowe\Configs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Paddle.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>Pliki nagłówkowe\Scenes</Filter>
     </ClInclude>
@@ -73,6 +100,27 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Pliki nagłówkowe\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Paddle.h">
+      <Filter>Pliki nagłówkowe\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Pliki nagłówkowe\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Pliki nagłówkowe\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickConfigLoader.h">
+      <Filter>Pliki nagłówkowe\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Label.h">
+      <Filter>Pliki nagłówkowe\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="FontManager.h">
+      <Filter>Pliki nagłówkowe\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowConfig.h">
+      <Filter>Pliki nagłówkowe\Configs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
