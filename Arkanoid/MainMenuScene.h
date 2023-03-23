@@ -2,13 +2,12 @@
 #include "Scene.h"
 #include "Button.h"
 #include "SceneManager.h"
+#include "Label.h"
 
 class MainMenuScene : public Scene
 {
 public:
 	MainMenuScene(SceneManager& sceneManager, sf::RenderWindow& window);
-
-	virtual ~MainMenuScene();
 
 	void draw(sf::RenderWindow& window) override;
 	void update(float dt) override;
@@ -18,10 +17,11 @@ private:
 	SceneManager& sceneManager;
 
 	sf::Font font;
-	sf::Text title;
 
-	Button* playBtn = nullptr;
-	Button* exitBtn = nullptr;
+	Label title;
+
+	Button playBtn;
+	Button exitBtn;
 
 	void startGame();
 	void exit();
