@@ -1,8 +1,9 @@
 #include "Paddle.h"
+#include "WindowConfig.h"
 
-Paddle::Paddle(float x, float y)
+Paddle::Paddle()
 {
-	shape.setPosition(x - WIDTH / 2, y - HEIGHT / 2);
+	shape.setPosition(WindowConfig::WINDOW_WIDTH / 2.f - WIDTH / 2.f, Y_POISITION - HEIGHT / 2.f);
 	shape.setSize({ WIDTH, HEIGHT });
 	shape.setFillColor(COLOR);
 
@@ -12,11 +13,13 @@ Paddle::Paddle(float x, float y)
 
 void Paddle::update(float deltaTime)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && canMoveLeft()) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && canMoveLeft()) 
+	{
 		shape.move(-SPEED * deltaTime, 0);
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && canMoveRight()) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && canMoveRight()) 
+	{
 		shape.move(SPEED * deltaTime, 0);
 	}
 }
@@ -33,6 +36,5 @@ bool Paddle::canMoveLeft()
 
 bool Paddle::canMoveRight()
 {
-	// left edge position + paddle width < window width
-	return shape.getPosition().x + shape.getSize().x < 600 - WINDOW_BOUNDARY_MARGIN;
+	return shape.getPosition().x + shape.getSize().x < WindowConfig::WINDOW_WIDTH - WINDOW_BOUNDARY_MARGIN;
 }

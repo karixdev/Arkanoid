@@ -4,7 +4,7 @@
 class Paddle
 {
 public:
-	Paddle(float x, float y);
+	Paddle();
 
 	void update(float deltaTime);
 	void draw(sf::RenderWindow& window);
@@ -26,5 +26,7 @@ private:
 	const sf::Color OUTLINE_COLOR = sf::Color::Black;
 
 	const float WINDOW_BOUNDARY_MARGIN = 10.f;
+
+	const float Y_POISITION = 750;
 };
 
