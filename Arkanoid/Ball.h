@@ -8,7 +8,10 @@ public:
 	Ball();
 
 	void draw(sf::RenderWindow& window);
-	void update(float dt, const Paddle& paddle);
+	void update(float dt);
+
+	void handleCollision(const Paddle& paddle);
+
 
 private:
 	sf::CircleShape shape;
@@ -18,7 +21,6 @@ private:
 	void horizontalWallCollision();
 	void verticalWallCollision();
 
-	void paddleCollision(const Paddle& paddle);
 
 	const float RADIUS = 10.f;
 	const sf::Color COLOR = sf::Color::Red;

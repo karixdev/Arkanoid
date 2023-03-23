@@ -41,6 +41,8 @@ void Level::draw(sf::RenderWindow& window)
 
 void Level::update(float dt)
 {
-    ball.update(dt, paddle);
+    ball.handleCollision(paddle);
+
+    ball.update(dt);
     paddle.update(dt);
 }

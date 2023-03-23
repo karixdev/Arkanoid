@@ -84,6 +84,9 @@
     <ClCompile Include="WindowConfig.cpp">
       <Filter>Pliki źródłowe\Configs</Filter>
     </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Pliki źródłowe\GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneManager.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="WindowConfig.h">
       <Filter>Pliki nagłówkowe\Configs</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Pliki nagłówkowe\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

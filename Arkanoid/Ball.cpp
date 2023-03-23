@@ -18,10 +18,8 @@ void Ball::draw(sf::RenderWindow& window)
 	window.draw(shape);
 }
 
-void Ball::update(float dt, const Paddle& paddle)
+void Ball::update(float dt)
 {
-	paddleCollision(paddle);
-
 	horizontalWallCollision();
 	verticalWallCollision();
 
@@ -48,10 +46,10 @@ void Ball::verticalWallCollision()
 	}
 }
 
-void Ball::paddleCollision(const Paddle& paddle)
+void Ball::handleCollision(const Paddle& paddle)
 {
 	sf::FloatRect overlap;
-	if (shape.getGlobalBounds().intersects(paddle.getGlobalBounds(), overlap)) 
+	if (shape.getGlobalBounds().intersects(paddle.getGlobalBounds(), overlap))
 	{
 		float ballPosition = shape.getPosition().x;
 		float paddlePosition = paddle.getPosition().x;
@@ -62,16 +60,15 @@ void Ball::paddleCollision(const Paddle& paddle)
 
 		bool ballFromLeft = overlapLeft < overlapRight;
 
-		if (ballFromLeft) 
+		if (ballFromLeft)
 		{
 			velocity.x = -abs(velocity.x);
 		}
-		else 
+		else
 		{
 			velocity.x = abs(velocity.x);
 		}
 
 		velocity.y = -abs(velocity.y);
 	}
-
 }
