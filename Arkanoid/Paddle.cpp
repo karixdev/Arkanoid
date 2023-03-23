@@ -29,6 +29,21 @@ void Paddle::draw(sf::RenderWindow& window)
 	window.draw(shape);
 }
 
+sf::RectangleShape Paddle::getShape() const
+{
+	return shape;
+}
+
+sf::Vector2f Paddle::getPosition() const
+{
+	return shape.getPosition();
+}
+
+sf::FloatRect Paddle::getGlobalBounds() const
+{
+	return shape.getGlobalBounds();
+}
+
 bool Paddle::canMoveLeft()
 {
 	return shape.getPosition().x > WINDOW_BOUNDARY_MARGIN;

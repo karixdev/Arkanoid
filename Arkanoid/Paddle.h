@@ -9,6 +9,11 @@ public:
 	void update(float deltaTime);
 	void draw(sf::RenderWindow& window);
 
+	sf::RectangleShape getShape() const;
+
+	sf::Vector2f getPosition() const;
+	sf::FloatRect getGlobalBounds() const;
+
 private:
 	sf::RectangleShape shape;
 
@@ -17,8 +22,8 @@ private:
 
 	const float SPEED = .5f;
 
-	const float WIDTH = 75.f;
-	const float HEIGHT = 15.f;
+	const float WIDTH = 100.f;
+	const float HEIGHT = 10.f;
 
 	const sf::Color COLOR = sf::Color::Green;
 

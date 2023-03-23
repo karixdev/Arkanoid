@@ -3,6 +3,7 @@
 #include "Brick.h"
 #include "BrickConfigLoader.h"
 #include "Paddle.h"
+#include "Ball.h"
 
 class Level
 {
@@ -24,5 +25,6 @@ private:
 
 	std::vector<Brick> bricks;
 	Paddle paddle;
+	Ball ball;
 };
 

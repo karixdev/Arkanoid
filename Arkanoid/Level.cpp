@@ -1,7 +1,7 @@
 #include "Level.h"
 
 Level::Level(std::string filename) : 
-    filename(filename), paddle(Paddle())
+    filename(filename), paddle(Paddle()), ball(Ball())
 {
 }
 
@@ -36,9 +36,11 @@ void Level::draw(sf::RenderWindow& window)
 	}
 
     paddle.draw(window);
+    ball.draw(window);
 }
 
 void Level::update(float dt)
 {
+    ball.update(dt, paddle);
     paddle.update(dt);
 }
