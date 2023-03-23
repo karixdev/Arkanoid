@@ -1,26 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
-enum BrickType
-{
-	ONE_HIT,
-	TWO_HIT,
-	THREE_HIT
-};
+#include "Label.h"
 
 class Brick
 {
 public:
-	Brick(sf::Vector2f position, int numberOfLives);
+	Brick(sf::Vector2f position, sf::Vector2f size, int lives);
 
-	void draw(sf::RenderWindow window);
-	void hit();
+	void draw(sf::RenderWindow& window);
+
 private:
 	sf::RectangleShape shape;
 
-	int numberOfLives;
+	const float OUTLINE_THICKNESS = 2.f;
 
-	const float WIDTH = 100.f;
-	const float HEIGHT = 100.f;
+	Label label;
 };
 

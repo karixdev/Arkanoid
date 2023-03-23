@@ -1,22 +1,20 @@
 #include "Brick.h"
 
-Brick::Brick(sf::Vector2f position, int numberOfLives)
+Brick::Brick(sf::Vector2f position, sf::Vector2f size, int lives) :
+	label(Label(30, std::to_string(lives)))
 {
-	shape.setPosition(position.x - WIDTH / 2, position.y - HEIGHT / 2);
-	shape.setSize({ WIDTH, HEIGHT });
-	shape.setFillColor(sf::Color::Blue);
+	shape.setPosition(position);
+	shape.setSize(size);
+	shape.setFillColor(sf::Color::Yellow);
 
 	shape.setOutlineThickness(2);
 	shape.setOutlineColor(sf::Color::Black);
 
-	this->numberOfLives = numberOfLives;
+	label.centerRelativily(shape);
 }
 
-void Brick::draw(sf::RenderWindow window)
+void Brick::draw(sf::RenderWindow& window)
 {
 	window.draw(shape);
-}
-
-void Brick::hit()
-{
+	label.draw(window);
 }
