@@ -13,7 +13,6 @@ public:
 	sf::Vector2f getPosition() const;
 	sf::Vector2f getSize() const;
 
-	void setIsDestroyed(bool val);
 	bool getIsDestroyed() const;
 
 	void descreaseLives();
@@ -28,5 +27,8 @@ private:
 	int lives;
 
 	Label label;
+
+	const sf::Color OUTLINE_COLOR = sf::Color::Black;
+	const int OUTLINE_THICKNESS = -1.f;
 };
 

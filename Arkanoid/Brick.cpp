@@ -7,8 +7,8 @@ Brick::Brick(sf::Vector2f position, sf::Vector2f size, int lives) :
 	shape.setSize(size);
 	shape.setFillColor(sf::Color::Yellow);
 
-	shape.setOutlineThickness(-1.f);
-	shape.setOutlineColor(sf::Color::Black);
+	shape.setOutlineThickness(OUTLINE_THICKNESS);
+	shape.setOutlineColor(OUTLINE_COLOR);
 
 	label.centerRelativily(shape);
 }
