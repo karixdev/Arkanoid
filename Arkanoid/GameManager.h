@@ -16,6 +16,7 @@ public:
 	void updatePoints(int lives);
 
 	void setActiveLevel(std::string levelName);
+	std::string getActiveLevel() const;
 
 	void reset();
 

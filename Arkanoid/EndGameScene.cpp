@@ -1,5 +1,6 @@
 #include "EndGameScene.h"
 #include <functional>
+#include <iostream>
 
 EndGameScene::EndGameScene(
 	sf::RenderWindow& window, 
@@ -12,7 +13,8 @@ EndGameScene::EndGameScene(
 	sceneManager(sceneManager),
 	playAgainBtn(Button(sf::Vector2f(300, 500), sf::Vector2f(200, 50), "Restart")),
 	mainMenuBtn(Button(sf::Vector2f(300, 575), sf::Vector2f(200, 50), "Menu")),
-	label(Label(80.f, text, color))
+	label(Label(80.f, text, color)),
+	gameManager(gameManager)
 {
 	playAgainBtn.setCallback(std::bind(&EndGameScene::playAgain, this));
 	mainMenuBtn.setCallback(std::bind(&EndGameScene::goToMainMenu, this));
@@ -41,6 +43,8 @@ void EndGameScene::handleEvent(sf::Event& event)
 
 void EndGameScene::playAgain()
 {
+	std::cout << gameManager.getActiveLevel() << std::endl;
+	sceneManager.switchScene(gameManager.getActiveLevel());
 }
 
 void EndGameScene::goToMainMenu()

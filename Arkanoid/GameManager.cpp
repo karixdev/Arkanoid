@@ -24,9 +24,14 @@ void GameManager::setActiveLevel(std::string levelName)
 	activeLevelName = levelName;
 }
 
+std::string GameManager::getActiveLevel() const
+{
+	return activeLevelName;
+}
+
 void GameManager::reset()
 {
 	points = 0;
 	panel.setPoints(0);
-	activeLevelName = "";
+	//activeLevelName = "";
 }

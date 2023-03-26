@@ -29,5 +29,6 @@ private:
 	void goToMainMenu();
 
 	SceneManager& sceneManager;
+	GameManager& gameManager;
 };
 

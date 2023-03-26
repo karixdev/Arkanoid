@@ -3,11 +3,16 @@
 #include "Button.h"
 #include "SceneManager.h"
 #include "Label.h"
+#include "GameManager.h"
 
 class MainMenuScene : public Scene
 {
 public:
-	MainMenuScene(SceneManager& sceneManager, sf::RenderWindow& window);
+	MainMenuScene(
+		SceneManager& sceneManager, 
+		sf::RenderWindow& window,
+		GameManager& gameManager
+	);
 
 	void draw(sf::RenderWindow& window) override;
 	void update(float dt) override;
@@ -22,6 +27,8 @@ private:
 
 	Button playBtn;
 	Button exitBtn;
+
+	GameManager& gameManager;
 
 	void startGame();
 	void exit();
