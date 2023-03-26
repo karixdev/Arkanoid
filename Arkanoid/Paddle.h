@@ -13,6 +13,7 @@ public:
 
 	sf::Vector2f getPosition() const;
 	sf::FloatRect getGlobalBounds() const;
+	sf::Vector2f getSize() const;
 
 private:
 	sf::RectangleShape shape;

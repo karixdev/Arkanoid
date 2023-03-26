@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Paddle.h"
+#include "Brick.h"
 
 class Ball
 {
@@ -11,16 +12,17 @@ public:
 	void update(float dt);
 
 	void handleCollision(const Paddle& paddle);
+	void handleCollision(Brick& brick);
 
+	sf::FloatRect getGlobalBounds() const;
 
 private:
 	sf::CircleShape shape;
 
-	sf::Vector2f velocity = { .35f, -.35f };
+	sf::Vector2f velocity = { .45f, -.45f };
 
 	void horizontalWallCollision();
 	void verticalWallCollision();
-
 
 	const float RADIUS = 10.f;
 	const sf::Color COLOR = sf::Color::Red;

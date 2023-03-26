@@ -44,6 +44,11 @@ sf::FloatRect Paddle::getGlobalBounds() const
 	return shape.getGlobalBounds();
 }
 
+sf::Vector2f Paddle::getSize() const
+{
+	return sf::Vector2f(getGlobalBounds().width, getGlobalBounds().height);
+}
+
 bool Paddle::canMoveLeft()
 {
 	return shape.getPosition().x > WINDOW_BOUNDARY_MARGIN;

@@ -13,6 +13,8 @@ public:
 
 	void draw(sf::RenderWindow& window);
 
+	void setText(std::string content);
+
 private:
 	sf::Text text;
 

@@ -54,4 +54,9 @@ void Label::draw(sf::RenderWindow& window)
     window.draw(text);
 }
 
+void Label::setText(std::string content)
+{
+    text.setString(content);
+}
+
 
