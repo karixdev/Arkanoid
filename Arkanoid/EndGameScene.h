@@ -10,7 +10,9 @@ public:
 	EndGameScene(
 		sf::RenderWindow& window, 
 		SceneManager& sceneManager, 
-		GameManager& gameManager
+		GameManager& gameManager,
+		std::string text,
+		sf::Color color
 	);
 
 	void draw(sf::RenderWindow& window) override;
@@ -18,6 +20,8 @@ public:
 	void handleEvent(sf::Event& event) override;
 
 private:
+	Label label;
+
 	Button playAgainBtn;
 	Button mainMenuBtn;
 
