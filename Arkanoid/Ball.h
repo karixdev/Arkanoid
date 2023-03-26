@@ -19,7 +19,7 @@ public:
 private:
 	sf::CircleShape shape;
 
-	sf::Vector2f velocity = { .45f, -.45f };
+	sf::Vector2f velocity = { .4f, -.4f };
 
 	void horizontalWallCollision();
 	void verticalWallCollision();
