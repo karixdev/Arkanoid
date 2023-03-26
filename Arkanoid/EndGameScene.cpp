@@ -29,10 +29,14 @@ void EndGameScene::draw(sf::RenderWindow& window)
 
 void EndGameScene::update(float dt)
 {
+	playAgainBtn.update(window);
+	mainMenuBtn.update(window);
 }
 
 void EndGameScene::handleEvent(sf::Event& event)
 {
+	playAgainBtn.handleEvent(event);
+	mainMenuBtn.handleEvent(event);
 }
 
 void EndGameScene::playAgain()
