@@ -2,6 +2,9 @@
 #include <functional>
 #include "Label.h"
 
+#ifndef BUTTON_H
+#define BUTTON_H
+
 class Button {
 public:
     Button(const sf::Vector2f position, const sf::Vector2f size, const std::string text);
@@ -25,3 +28,5 @@ private:
     const sf::Color HOVER_COLOR = sf::Color(197, 197, 197);
     const sf::Color OUTLINE_COLOR = sf::Color::Black;
 };
+
+#endif

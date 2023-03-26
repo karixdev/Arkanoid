@@ -17,13 +17,23 @@ public:
 
 	sf::FloatRect getGlobalBounds() const;
 
+	float getRadius() const;
+	sf::Vector2f getPosition() const;
+
+private:
+	void horizontalWallCollision();
+	void verticalWallCollision();
+
+	void beforeStartMovement(float dt);
+	void afterStartMovement(float dt);
+
+	bool canMoveLeft();
+	bool canMoveRight();
+
 private:
 	sf::CircleShape shape;
 
 	sf::Vector2f velocity = { .4f, -.4f };
-
-	void horizontalWallCollision();
-	void verticalWallCollision();
 
 	const float RADIUS = 10.f;
 	const sf::Color COLOR = sf::Color::Red;
@@ -38,12 +48,6 @@ private:
 		WindowConfig::WINDOW_WIDTH / 2.f - RADIUS,
 		720.f
 	);
-
-	void beforeStartMovement(float dt);
-	void afterStartMovement(float dt);
-
-	bool canMoveLeft();
-	bool canMoveRight();
 
 	const float WINDOW_BOUNDARY_MARGIN = 10.f;
 

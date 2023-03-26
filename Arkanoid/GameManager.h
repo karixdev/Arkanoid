@@ -8,17 +8,15 @@
 class GameManager
 {
 public:
-	GameManager(std::vector<Brick>& bricks, Ball& ball, Paddle& paddle);
+	GameManager();
 
 	void draw(sf::RenderWindow& window);
 	void update(float dt);
+
+	void updatePoints(int lives);
 
 private:
 	int points = 0;
 
 	GamePanel panel;
-
-	Ball& ball;
-	Paddle& paddle;
-	std::vector<Brick>& bricks;
 };

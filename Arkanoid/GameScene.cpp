@@ -1,6 +1,13 @@
 #include "GameScene.h"
 
-GameScene::GameScene(sf::RenderWindow& window, const std::string& levelFilename) : Scene(window), level(Level(levelFilename))
+GameScene::GameScene(
+	sf::RenderWindow& window, 
+	const std::string& levelFilename,
+	GameManager& gameManager,
+	SceneManager& sceneManger
+) : 
+	Scene(window), 
+	level(Level(levelFilename, gameManager, sceneManger))
 {
 	level.init();
 }

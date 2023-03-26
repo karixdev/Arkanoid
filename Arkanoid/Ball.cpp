@@ -158,3 +158,13 @@ bool Ball::canMoveRight()
 
 	return shape.getPosition().x < RIGHT_SIDE_BOUNDARY;
 }
+
+float Ball::getRadius() const
+{
+	return RADIUS;
+}
+
+sf::Vector2f Ball::getPosition() const
+{
+	return shape.getPosition();
+}

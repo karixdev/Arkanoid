@@ -5,11 +5,16 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "GameManager.h"
+#include "SceneManager.h"
 
 class Level
 {
 public:
-	Level(std::string filename);
+	Level(
+		std::string filename,
+		GameManager& gameManager,
+		SceneManager& sceneManager
+	);
 
 	void init();
 
@@ -19,17 +24,21 @@ public:
 private:
 	std::string filename;
 
+	GamePanel panel;
+
 	const float BRICK_WIDTH = 58.f;
-	//const float BRICK_WIDTH = 52.6f;
 	const float BRICK_HEIGHT = 58.f;
 	const float BRICK_MARGIN = 0.f;
-	//const float BRICK_MARGIN = 6.f;
 	const float WINDOW_MARGIN = 10.f;
 
-	GameManager gameManager;
+	SceneManager& sceneManager;
+	GameManager& gameManager;
 
 	std::vector<Brick> bricks;
 	Paddle paddle;
 	Ball ball;
+
+	const float LOSE_LINE_HEIGHT = 760.f;
+	bool checkForLose();
 };
 

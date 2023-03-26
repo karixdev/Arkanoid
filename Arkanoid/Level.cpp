@@ -1,7 +1,15 @@
 #include "Level.h"
 
-Level::Level(std::string filename) : 
-    filename(filename), paddle(Paddle()), ball(Ball()), gameManager(GameManager(bricks, ball, paddle))
+Level::Level(
+    std::string filename, 
+    GameManager& gameManager,
+    SceneManager& sceneManager
+) :
+    filename(filename), 
+    paddle(Paddle()),
+    ball(Ball()),
+    gameManager(gameManager),
+    sceneManager(sceneManager)
 {
 }
 
@@ -43,8 +51,28 @@ void Level::draw(sf::RenderWindow& window)
 
 void Level::update(float dt)
 {
-    gameManager.update(dt);
+    if (checkForLose())
+    {
+        sceneManager.switchScene("lose");
+    }
+
+    for (Brick& brick : bricks)
+    {
+        if (!ball.handleCollision(brick)) continue;
+
+        gameManager.updatePoints(brick.getLives());
+
+        brick.descreaseLives();
+    }
+
+    // check for paddle ball collisions
+    ball.handleCollision(paddle);
 
     ball.update(dt);
     paddle.update(dt);
+}
+
+bool Level::checkForLose()
+{
+    return ball.getPosition().y + 2.f * ball.getRadius() > LOSE_LINE_HEIGHT;
 }

@@ -93,6 +93,9 @@
     <ClCompile Include="GamePanel.cpp">
       <Filter>Pliki źródłowe\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="EndGameScene.cpp">
+      <Filter>Pliki źródłowe\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneManager.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="GamePanel.h">
       <Filter>Pliki nagłówkowe\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="EndGameScene.h">
+      <Filter>Pliki nagłówkowe\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
