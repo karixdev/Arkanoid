@@ -22,4 +22,3 @@ private:
 	Paddle& paddle;
 	std::vector<Brick>& bricks;
 };
-

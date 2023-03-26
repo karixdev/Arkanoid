@@ -1,18 +1,17 @@
 #define _USE_MATH_DEFINES
 
 #include "Ball.h"
-#include "WindowConfig.h"
 #include <math.h>
 
 Ball::Ball()
 {
-	shape.setPosition(300, 400);
+	shape.setPosition(INIT_POSITION);
 
 	shape.setRadius(RADIUS);
 	shape.setFillColor(COLOR);
 
-	shape.setOutlineThickness(-2.f);
-	shape.setOutlineColor(sf::Color::Black);
+	shape.setOutlineThickness(OUTLINE_THICKNESS);
+	shape.setOutlineColor(OUTLINE_COLOR);
 }
 
 void Ball::draw(sf::RenderWindow& window)
@@ -22,10 +21,14 @@ void Ball::draw(sf::RenderWindow& window)
 
 void Ball::update(float dt)
 {
-	horizontalWallCollision();
-	verticalWallCollision();
-
-	shape.move(dt * velocity.x, dt * velocity.y);
+	if (hasStarted)
+	{
+		afterStartMovement(dt);
+	}
+	else
+	{
+		beforeStartMovement(dt);
+	}
 }
 
 void Ball::horizontalWallCollision()
@@ -46,6 +49,33 @@ void Ball::verticalWallCollision()
 	{
 		velocity.y *= -1;
 	}
+}
+
+void Ball::beforeStartMovement(float dt)
+{
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && canMoveLeft())
+	{
+		shape.move(-BEFORE_START_SPEED * dt, 0);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && canMoveRight())
+	{
+		shape.move(BEFORE_START_SPEED * dt, 0);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		hasStarted = true;
+	}
+}
+
+void Ball::afterStartMovement(float dt)
+{
+	horizontalWallCollision();
+	verticalWallCollision();
+
+	shape.move(dt * velocity.x, dt * velocity.y);
 }
 
 void Ball::handleCollision(const Paddle& paddle)
@@ -116,4 +146,15 @@ bool Ball::handleCollision(Brick& brick)
 sf::FloatRect Ball::getGlobalBounds() const
 {
 	return shape.getGlobalBounds();
+}
+
+bool Ball::canMoveLeft()
+{
+	return shape.getPosition().x > LEFT_SIDE_BOUNDARY;
+}
+
+bool Ball::canMoveRight()
+{
+
+	return shape.getPosition().x < RIGHT_SIDE_BOUNDARY;
 }
