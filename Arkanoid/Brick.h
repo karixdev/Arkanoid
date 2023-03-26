@@ -16,11 +16,12 @@ public:
 	bool getIsDestroyed() const;
 
 	void descreaseLives();
+	int getLives() const;
 
 private:
 	sf::RectangleShape shape;
 
-	const float OUTLINE_THICKNESS = 2.f;
+	const float OUTLINE_THICKNESS = -1.f;
 
 	bool isDestroyed = false;
 
@@ -29,6 +30,5 @@ private:
 	Label label;
 
 	const sf::Color OUTLINE_COLOR = sf::Color::Black;
-	const int OUTLINE_THICKNESS = -1.f;
 };
 

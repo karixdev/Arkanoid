@@ -1,7 +1,7 @@
 #include "Level.h"
 
 Level::Level(std::string filename) : 
-    filename(filename), paddle(Paddle()), ball(Ball())
+    filename(filename), paddle(Paddle()), ball(Ball()), gameManager(GameManager(bricks, ball, paddle))
 {
 }
 
@@ -19,7 +19,7 @@ void Level::init()
             if (lives == 0) continue;
 
             float posX = j * (BRICK_MARGIN + BRICK_WIDTH) + WINDOW_MARGIN;
-            float posY = i * (BRICK_MARGIN + BRICK_HEIGHT) + WINDOW_MARGIN;
+            float posY = i * (BRICK_MARGIN + BRICK_HEIGHT) + WINDOW_MARGIN + 90.f;
 
             Brick brick(sf::Vector2f(posX, posY), sf::Vector2f(BRICK_WIDTH, BRICK_HEIGHT), lives);
 
@@ -37,16 +37,13 @@ void Level::draw(sf::RenderWindow& window)
 
     paddle.draw(window);
     ball.draw(window);
+
+    gameManager.draw(window);
 }
 
 void Level::update(float dt)
 {
-    for (Brick& brick : bricks)
-    {
-        ball.handleCollision(brick);
-    }
-
-    ball.handleCollision(paddle);
+    gameManager.update(dt);
 
     ball.update(dt);
     paddle.update(dt);

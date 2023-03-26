@@ -12,7 +12,7 @@ public:
 	void update(float dt);
 
 	void handleCollision(const Paddle& paddle);
-	void handleCollision(Brick& brick);
+	bool handleCollision(Brick& brick);
 
 	sf::FloatRect getGlobalBounds() const;
 

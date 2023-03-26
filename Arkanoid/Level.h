@@ -4,6 +4,7 @@
 #include "BrickConfigLoader.h"
 #include "Paddle.h"
 #include "Ball.h"
+#include "GameManager.h"
 
 class Level
 {
@@ -24,6 +25,8 @@ private:
 	const float BRICK_MARGIN = 0.f;
 	//const float BRICK_MARGIN = 6.f;
 	const float WINDOW_MARGIN = 10.f;
+
+	GameManager gameManager;
 
 	std::vector<Brick> bricks;
 	Paddle paddle;

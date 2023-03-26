@@ -50,3 +50,8 @@ void Brick::descreaseLives()
 
 	label.setText(std::to_string(lives));
 }
+
+int Brick::getLives() const
+{
+	return lives;
+}

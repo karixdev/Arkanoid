@@ -30,8 +30,8 @@ void Ball::update(float dt)
 
 void Ball::horizontalWallCollision()
 {
-	if (shape.getPosition().x + shape.getRadius() <= 10 ||
-		shape.getPosition().x + shape.getRadius() >= WindowConfig::WINDOW_WIDTH - 10
+	if (shape.getPosition().x + shape.getRadius() <= 10.f ||
+		shape.getPosition().x + shape.getRadius() >= WindowConfig::WINDOW_WIDTH - 10.f
 	)
 	{
 		velocity.x *= -1;
@@ -40,7 +40,7 @@ void Ball::horizontalWallCollision()
 
 void Ball::verticalWallCollision()
 {
-	if (shape.getPosition().y + shape.getRadius() <= 0 ||
+	if (shape.getPosition().y + shape.getRadius() <= 90.f + 10.f ||
 		shape.getPosition().y + shape.getRadius() >= WindowConfig::WINDOW_HEIGHT
 	)
 	{
@@ -75,12 +75,12 @@ void Ball::handleCollision(const Paddle& paddle)
 	velocity.y = -abs(velocity.y);
 }
 
-void Ball::handleCollision(Brick& brick)
+bool Ball::handleCollision(Brick& brick)
 {
 	sf::FloatRect ballBounds = shape.getGlobalBounds();
 	sf::FloatRect brickBounds = brick.getGlobalBounds();
 
-	if (!ballBounds.intersects(brickBounds) || brick.getIsDestroyed()) return;
+	if (!ballBounds.intersects(brickBounds) || brick.getIsDestroyed()) return false;
 
 	sf::Vector2f brickPos = brick.getPosition();
 	sf::Vector2f brickSize = brick.getSize();
@@ -110,7 +110,7 @@ void Ball::handleCollision(Brick& brick)
 		velocity.y = ballFromTop ? -abs(velocity.y) : abs(velocity.y);
 	}
 
-	brick.descreaseLives();
+	return true;
 }
 
 sf::FloatRect Ball::getGlobalBounds() const
