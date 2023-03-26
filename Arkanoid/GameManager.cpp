@@ -18,3 +18,15 @@ void GameManager::updatePoints(int lives)
 	points += lives * 10;
 	panel.setPoints(points);
 }
+
+void GameManager::setActiveLevel(std::string levelName)
+{
+	activeLevelName = levelName;
+}
+
+void GameManager::reset()
+{
+	points = 0;
+	panel.setPoints(0);
+	activeLevelName = "";
+}

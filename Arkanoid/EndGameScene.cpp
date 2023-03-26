@@ -10,8 +10,8 @@ EndGameScene::EndGameScene(
 ) :
 	Scene(window),
 	sceneManager(sceneManager),
-	playAgainBtn(Button(sf::Vector2f(300, 500), sf::Vector2f(200, 50), "Play")),
-	mainMenuBtn(Button(sf::Vector2f(300, 575), sf::Vector2f(200, 50), "Exit")),
+	playAgainBtn(Button(sf::Vector2f(300, 500), sf::Vector2f(200, 50), "Restart")),
+	mainMenuBtn(Button(sf::Vector2f(300, 575), sf::Vector2f(200, 50), "Menu")),
 	label(Label(80.f, text, color))
 {
 	playAgainBtn.setCallback(std::bind(&EndGameScene::playAgain, this));

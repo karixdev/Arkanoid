@@ -20,6 +20,8 @@ public:
 	float getRadius() const;
 	sf::Vector2f getPosition() const;
 
+	void reset();
+
 private:
 	void horizontalWallCollision();
 	void verticalWallCollision();

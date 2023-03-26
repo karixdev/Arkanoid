@@ -1,5 +1,4 @@
 #include "Paddle.h"
-#include "WindowConfig.h"
 
 Paddle::Paddle()
 {
@@ -47,6 +46,11 @@ sf::FloatRect Paddle::getGlobalBounds() const
 sf::Vector2f Paddle::getSize() const
 {
 	return sf::Vector2f(getGlobalBounds().width, getGlobalBounds().height);
+}
+
+void Paddle::reset()
+{
+	shape.setPosition(INIT_POSITION);
 }
 
 bool Paddle::canMoveLeft()

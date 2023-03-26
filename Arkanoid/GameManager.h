@@ -15,8 +15,14 @@ public:
 
 	void updatePoints(int lives);
 
+	void setActiveLevel(std::string levelName);
+
+	void reset();
+
 private:
 	int points = 0;
 
 	GamePanel panel;
+
+	std::string activeLevelName;
 };

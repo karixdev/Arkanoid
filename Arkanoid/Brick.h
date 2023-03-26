@@ -18,6 +18,8 @@ public:
 	void descreaseLives();
 	int getLives() const;
 
+	void reset();
+
 private:
 	sf::RectangleShape shape;
 
@@ -25,6 +27,7 @@ private:
 
 	bool isDestroyed = false;
 
+	int initLives;
 	int lives;
 
 	Label label;

@@ -168,3 +168,9 @@ sf::Vector2f Ball::getPosition() const
 {
 	return shape.getPosition();
 }
+
+void Ball::reset()
+{
+	shape.setPosition(INIT_POSITION);
+	hasStarted = false;
+}

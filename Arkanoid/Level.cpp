@@ -53,6 +53,7 @@ void Level::update(float dt)
 {
     if (checkForLose())
     {
+        reset();
         sceneManager.switchScene("lose");
     }
 
@@ -70,6 +71,17 @@ void Level::update(float dt)
 
     ball.update(dt);
     paddle.update(dt);
+}
+
+void Level::reset()
+{
+    gameManager.reset();
+    ball.reset();
+    paddle.reset();
+    for (Brick& brick : bricks)
+    {
+        brick.reset();
+    }
 }
 
 bool Level::checkForLose()

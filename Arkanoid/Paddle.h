@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "WindowConfig.h"
 
 class Paddle
 {
@@ -14,6 +15,8 @@ public:
 	sf::Vector2f getPosition() const;
 	sf::FloatRect getGlobalBounds() const;
 	sf::Vector2f getSize() const;
+
+	void reset();
 
 private:
 	sf::RectangleShape shape;
@@ -34,5 +37,10 @@ private:
 	const float WINDOW_BOUNDARY_MARGIN = 10.f;
 
 	const float Y_POISITION = 750;
+
+	const sf::Vector2f INIT_POSITION = sf::Vector2f(
+		WindowConfig::WINDOW_WIDTH / 2.f - WIDTH / 2.f, 
+		Y_POISITION - HEIGHT / 2.f
+	);
 };
 

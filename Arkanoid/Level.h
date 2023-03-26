@@ -21,6 +21,8 @@ public:
 	void draw(sf::RenderWindow& window);
 	void update(float dt);
 
+	void reset();
+
 private:
 	std::string filename;
 
