@@ -41,6 +41,11 @@ void Level::draw(sf::RenderWindow& window)
 
 void Level::update(float dt)
 {
+    for (Brick& brick : bricks)
+    {
+        ball.handleCollision(brick);
+    }
+
     ball.handleCollision(paddle);
 
     ball.update(dt);

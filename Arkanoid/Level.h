@@ -18,9 +18,11 @@ public:
 private:
 	std::string filename;
 
-	const float BRICK_WIDTH = 52.6f;
-	const float BRICK_HEIGHT = 52.6f;
-	const float BRICK_MARGIN = 6.f;
+	const float BRICK_WIDTH = 58.f;
+	//const float BRICK_WIDTH = 52.6f;
+	const float BRICK_HEIGHT = 58.f;
+	const float BRICK_MARGIN = 0.f;
+	//const float BRICK_MARGIN = 6.f;
 	const float WINDOW_MARGIN = 10.f;
 
 	std::vector<Brick> bricks;
