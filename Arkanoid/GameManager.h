@@ -11,6 +11,7 @@ public:
 	GameManager();
 
 	void draw(sf::RenderWindow& window);
+
 	void update(float dt);
 
 	void updatePoints(int lives);
@@ -21,10 +22,16 @@ public:
 
 	void reset();
 
+	Ball& getBall();
+	Paddle& getPaddle();
+
 private:
 	int points = 0;
 
 	GamePanel panel;
 
 	std::string activeLevelName;
+
+	Paddle paddle;
+	Ball ball;
 };

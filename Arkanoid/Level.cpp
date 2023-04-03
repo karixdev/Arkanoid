@@ -6,12 +6,10 @@ Level::Level(
     GameManager& gameManager,
     SceneManager& sceneManager
 ) :
-    filename(filename), 
-    paddle(Paddle()),
-    ball(Ball()),
+    filename(filename),
     gameManager(gameManager),
     sceneManager(sceneManager)
-{ // TODO: move paddle and ball to GameManager
+{
 }
 
 void Level::init()
@@ -46,9 +44,6 @@ void Level::draw(sf::RenderWindow& window)
 		brick.draw(window);
 	}
 
-    paddle.draw(window);
-    ball.draw(window);
-
     gameManager.draw(window);
 }
 
@@ -60,7 +55,10 @@ void Level::update(float dt)
         sceneManager.switchScene("main-menu");
     }
 
-    if (checkForLose())
+    Ball& ball = gameManager.getBall();
+    Paddle& paddle = gameManager.getPaddle();
+
+    if (checkForLose(ball))
     {
         reset();
         sceneManager.switchScene("lose");
@@ -75,24 +73,20 @@ void Level::update(float dt)
         brick.descreaseLives();
     }
 
-    // check for paddle ball collisions
     ball.handleCollision(paddle);
 
-    ball.update(dt);
-    paddle.update(dt);
+    gameManager.update(dt);
 }
 
 void Level::reset()
 {
-    ball.reset();
-    paddle.reset();
     for (Brick& brick : bricks)
     {
         brick.reset();
     }
 }
 
-bool Level::checkForLose()
+bool Level::checkForLose(Ball& ball)
 {
     return ball.getPosition().y + 2.f * ball.getRadius() > LOSE_LINE_HEIGHT;
 }

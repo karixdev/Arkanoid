@@ -1,16 +1,23 @@
 #include "GameManager.h"
 
-GameManager::GameManager()
+GameManager::GameManager() :
+	ball(Ball()),
+	paddle(Paddle())
 {
 }
 
 void GameManager::draw(sf::RenderWindow& window)
 {
 	panel.draw(window);
+
+	ball.draw(window);
+	paddle.draw(window);
 }
 
 void GameManager::update(float dt)
 {
+	ball.update(dt);
+	paddle.update(dt);
 }
 
 void GameManager::updatePoints(int lives)
@@ -38,5 +45,19 @@ void GameManager::reset()
 {
 	points = 0;
 	panel.setPoints(0);
+
+	ball.reset();
+	paddle.reset();
+
 	activeLevelName = "";
+}
+
+Ball& GameManager::getBall()
+{
+	return ball;
+}
+
+Paddle& GameManager::getPaddle()
+{
+	return paddle;
 }

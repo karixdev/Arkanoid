@@ -37,10 +37,8 @@ private:
 	GameManager& gameManager;
 
 	std::vector<Brick> bricks;
-	Paddle paddle;
-	Ball ball;
 
 	const float LOSE_LINE_HEIGHT = 760.f;
-	bool checkForLose();
+	bool checkForLose(Ball& ball);
 };
 
