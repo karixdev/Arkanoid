@@ -1,11 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include "Paddle.h"
 #include "SceneManager.h"
-#include "GameScene.h"
 #include "MainMenuScene.h"
 #include "BrickConfigLoader.h"
 #include <iostream>
-#include "Level.h"
+#include "LevelScene.h"
 #include "GamePanel.h"
 #include "GameManager.h"
 #include "EndGameScene.h"
@@ -17,12 +16,12 @@ int main()
     SceneManager sceneManager(window);
     GameManager gameManager;
 
-    std::unique_ptr<GameScene> lvl1 = std::make_unique<GameScene>(window, "Levels/Level1.txt", gameManager, sceneManager);
-    //std::unique_ptr<GameScene> lvl2 = std::make_unique<GameScene>(window, "Levels/Level2.txt", gameManager, sceneManager);
-    //std::unique_ptr<GameScene> lvl3 = std::make_unique<GameScene>(window, "Levels/Level3.txt", gameManager, sceneManager);
-
-    sceneManager.addScene("game", std::make_unique<GameScene>(
-        window, "Levels/Level2.txt", gameManager, sceneManager));
+    sceneManager.addScene("lvl-1", std::make_unique<LevelScene>(
+        window,
+        "Levels/level1.txt",
+        gameManager,
+        sceneManager
+    ));
 
     sceneManager.addScene("main-menu", std::make_unique<MainMenuScene>(
         sceneManager, window, gameManager));

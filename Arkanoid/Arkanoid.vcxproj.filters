@@ -57,9 +57,6 @@
     <ClCompile Include="MainMenuScene.cpp">
       <Filter>Pliki źródłowe\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="GameScene.cpp">
-      <Filter>Pliki źródłowe\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Pliki źródłowe\GUI</Filter>
     </ClCompile>
@@ -68,9 +65,6 @@
     </ClCompile>
     <ClCompile Include="Brick.cpp">
       <Filter>Pliki źródłowe\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Pliki źródłowe\Levels</Filter>
     </ClCompile>
     <ClCompile Include="BrickConfigLoader.cpp">
       <Filter>Pliki źródłowe\Levels</Filter>
@@ -96,6 +90,9 @@
     <ClCompile Include="EndGameScene.cpp">
       <Filter>Pliki źródłowe\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="LevelScene.cpp">
+      <Filter>Pliki źródłowe\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneManager.h">
@@ -107,9 +104,6 @@
     <ClInclude Include="MainMenuScene.h">
       <Filter>Pliki nagłówkowe\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="GameScene.h">
-      <Filter>Pliki nagłówkowe\Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Pliki nagłówkowe\GUI</Filter>
     </ClInclude>
@@ -118,9 +112,6 @@
     </ClInclude>
     <ClInclude Include="Brick.h">
       <Filter>Pliki nagłówkowe\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Pliki nagłówkowe\Levels</Filter>
     </ClInclude>
     <ClInclude Include="BrickConfigLoader.h">
       <Filter>Pliki nagłówkowe\Levels</Filter>
@@ -144,6 +135,9 @@
       <Filter>Pliki nagłówkowe\GUI</Filter>
     </ClInclude>
     <ClInclude Include="EndGameScene.h">
+      <Filter>Pliki nagłówkowe\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelScene.h">
       <Filter>Pliki nagłówkowe\Scenes</Filter>
     </ClInclude>
   </ItemGroup>

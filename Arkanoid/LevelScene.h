@@ -6,20 +6,22 @@
 #include "Ball.h"
 #include "GameManager.h"
 #include "SceneManager.h"
+#include "Scene.h"
 
-class Level
+class LevelScene : public Scene 
 {
 public:
-	Level(
+	LevelScene(
+		sf::RenderWindow& window,
 		std::string filename,
 		GameManager& gameManager,
 		SceneManager& sceneManager
 	);
 
-	void init();
-
-	void draw(sf::RenderWindow& window);
-	void update(float dt);
+	void draw(sf::RenderWindow& window) override;
+	void update(float dt) override;
+	void handleEvent(sf::Event& event) override;
+	void start() override;
 
 	void reset();
 
