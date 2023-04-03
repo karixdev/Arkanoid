@@ -1,7 +1,7 @@
 #include "Brick.h"
 
 Brick::Brick(sf::Vector2f position, sf::Vector2f size, int lives) :
-	label(Label(30, std::to_string(lives))), lives(lives), initLives(lives)
+	label(Label(20.f, std::to_string(lives))), lives(lives), initLives(lives)
 {
 	shape.setPosition(position);
 	shape.setSize(size);

@@ -1,4 +1,5 @@
 #include "Level.h"
+#include <iostream>
 
 Level::Level(
     std::string filename, 
@@ -10,11 +11,13 @@ Level::Level(
     ball(Ball()),
     gameManager(gameManager),
     sceneManager(sceneManager)
-{
+{ // TODO: move paddle and ball to GameManager
 }
 
 void Level::init()
 {
+    if (!bricks.empty()) return;
+
     BrickConfigLoader loader;
 	std::vector<std::vector<int>> config = loader.load(filename);
 
@@ -51,6 +54,12 @@ void Level::draw(sf::RenderWindow& window)
 
 void Level::update(float dt)
 {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        gameManager.reset();
+        sceneManager.switchScene("main-menu");
+    }
+
     if (checkForLose())
     {
         reset();
@@ -75,7 +84,6 @@ void Level::update(float dt)
 
 void Level::reset()
 {
-    gameManager.reset();
     ball.reset();
     paddle.reset();
     for (Brick& brick : bricks)

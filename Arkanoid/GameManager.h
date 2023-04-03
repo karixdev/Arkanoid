@@ -14,6 +14,7 @@ public:
 	void update(float dt);
 
 	void updatePoints(int lives);
+	int getPoints() const;
 
 	void setActiveLevel(std::string levelName);
 	std::string getActiveLevel() const;

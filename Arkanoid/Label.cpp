@@ -1,7 +1,7 @@
 #include "Label.h"
 #include "FontManager.h"
 
-Label::Label(float size, std::string content)
+Label::Label(float size, const std::string& content)
 {
     text.setFont(FontManager::getFont("Fonts/arcade.ttf"));
 
@@ -16,7 +16,7 @@ Label::Label(float size, std::string content)
     text.setPosition(0, 0);
 }
 
-Label::Label(float size, std::string content, sf::Color color)
+Label::Label(float size, const std::string& content, sf::Color color)
 {
     text.setFont(FontManager::getFont("Fonts/arcade.ttf"));
 

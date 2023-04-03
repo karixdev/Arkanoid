@@ -5,8 +5,8 @@
 class Label
 {
 public:
-	Label(float size, std::string content);
-	Label(float size, std::string content, sf::Color color);
+	Label(float size, const std::string& content);
+	Label(float size, const std::string& content, sf::Color color);
 
 	void setPosition(sf::Vector2f position);
 	void centerRelativily(sf::RectangleShape shape);

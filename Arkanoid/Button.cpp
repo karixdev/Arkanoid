@@ -5,7 +5,7 @@ Button::Button(
 	const sf::Vector2f position, 
 	const sf::Vector2f size,
 	const std::string content
-) : label(Label(35, content))
+) : label(Label(20, content))
 {
 	shape.setSize(size);
 	shape.setPosition(sf::Vector2f(position.x - size.x / 2.f, position.y - size.y / 2.f));

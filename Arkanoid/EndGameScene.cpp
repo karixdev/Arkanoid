@@ -1,32 +1,37 @@
 #include "EndGameScene.h"
 #include <functional>
-#include <iostream>
 
 EndGameScene::EndGameScene(
-	sf::RenderWindow& window, 
-	SceneManager& sceneManager, 
+	sf::RenderWindow& window,
+	SceneManager& sceneManager,
 	GameManager& gameManager,
 	std::string text,
 	sf::Color color
 ) :
 	Scene(window),
+
 	sceneManager(sceneManager),
+	gameManager(gameManager),
+
 	playAgainBtn(Button(sf::Vector2f(300, 500), sf::Vector2f(200, 50), "Restart")),
 	mainMenuBtn(Button(sf::Vector2f(300, 575), sf::Vector2f(200, 50), "Menu")),
-	label(Label(80.f, text, color)),
-	gameManager(gameManager)
+
+	messageLabel(Label(50.f, text, color)),
+	scoreLabel(Label(40.f, std::to_string(gameManager.getPoints()), sf::Color::White))
 {
 	playAgainBtn.setCallback(std::bind(&EndGameScene::playAgain, this));
 	mainMenuBtn.setCallback(std::bind(&EndGameScene::goToMainMenu, this));
 
-	label.setPosition(sf::Vector2f(300.f, 400.f));
+	messageLabel.setPosition(sf::Vector2f(300.f, 100.f));
+	scoreLabel.setPosition(sf::Vector2f(300.f, 200.f));
 }
 
 void EndGameScene::draw(sf::RenderWindow& window)
 {
-	label.draw(window);
+	messageLabel.draw(window);
 	playAgainBtn.draw(window);
 	mainMenuBtn.draw(window);
+	scoreLabel.draw(window);
 }
 
 void EndGameScene::update(float dt)
@@ -41,14 +46,20 @@ void EndGameScene::handleEvent(sf::Event& event)
 	mainMenuBtn.handleEvent(event);
 }
 
+void EndGameScene::start()
+{
+	scoreLabel.setText("Score: " + std::to_string(gameManager.getPoints()));
+	scoreLabel.setPosition(sf::Vector2f(300.f, 200.f));
+}
+
 void EndGameScene::playAgain()
 {
-	std::cout << gameManager.getActiveLevel() << std::endl;
 	sceneManager.switchScene(gameManager.getActiveLevel());
+	gameManager.reset();
 }
 
 void EndGameScene::goToMainMenu()
 {
 	sceneManager.switchScene("main-menu");
+	gameManager.reset();
 }
-

@@ -45,5 +45,7 @@ void SceneManager::switchScene(std::string name)
 	if (it != scenes.end())
 	{
 		currentScene = it->second.get();
+
+		currentScene->start();
 	}
 }

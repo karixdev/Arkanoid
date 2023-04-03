@@ -17,6 +17,7 @@ public:
 	void draw(sf::RenderWindow& window) override;
 	void update(float dt) override;
 	void handleEvent(sf::Event& event) override;
+	void start() override;
 
 private:
 	SceneManager& sceneManager;

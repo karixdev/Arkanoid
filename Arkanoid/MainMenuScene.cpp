@@ -2,7 +2,7 @@
 #include <iostream>
 
 MainMenuScene::MainMenuScene(
-    SceneManager& sceneManager, 
+    SceneManager& sceneManager,
     sf::RenderWindow& window,
     GameManager& gameManager
 ) : 
@@ -14,7 +14,7 @@ MainMenuScene::MainMenuScene(
     playBtn(Button(sf::Vector2f(300, 500), sf::Vector2f(200, 50), "Play")),
     exitBtn(Button(sf::Vector2f(300, 575), sf::Vector2f(200, 50), "Exit")),
 
-    title(Label(90, "Arkanoid"))
+    title(Label(65, "Arkanoid"))
 {
     title.setPosition(sf::Vector2f(300, 100));
 
@@ -38,6 +38,10 @@ void MainMenuScene::handleEvent(sf::Event& event)
 {
     playBtn.handleEvent(event);
     exitBtn.handleEvent(event);
+}
+
+void MainMenuScene::start()
+{
 }
 
 void MainMenuScene::startGame()

@@ -24,5 +24,8 @@ void GameScene::update(float dt)
 
 void GameScene::handleEvent(sf::Event& event)
 {
+}
 
+void GameScene::start()
+{
 }
