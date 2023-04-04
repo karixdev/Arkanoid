@@ -23,6 +23,9 @@ public:
 
 private:
 	SceneManager& sceneManager;
+	GameManager& gameManager;
+
+	int levelsNumber;
 
 	sf::Font font;
 
@@ -30,8 +33,6 @@ private:
 
 	std::vector<Button> lvlBtns;
 	Button exitBtn;
-
-	GameManager& gameManager;
 
 	void startLevel(std::string levelName);
 	void exit();
