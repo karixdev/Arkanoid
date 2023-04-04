@@ -26,6 +26,9 @@ private:
 
 	Label title;
 
+	Button lvlBtn1;
+	Button lvlBtn2;
+
 	Button playBtn;
 	Button exitBtn;
 
@@ -33,5 +36,7 @@ private:
 
 	void startGame();
 	void exit();
+
+	void startLevel(std::string levelName);
 };
 

@@ -23,6 +23,13 @@ int main()
         sceneManager
     ));
 
+    sceneManager.addScene("lvl-2", std::make_unique<LevelScene>(
+        window,
+        "Levels/level2.txt",
+        gameManager,
+        sceneManager
+    ));
+
     sceneManager.addScene("main-menu", std::make_unique<MainMenuScene>(
         sceneManager, window, gameManager));
 
