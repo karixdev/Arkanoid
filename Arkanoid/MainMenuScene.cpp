@@ -4,54 +4,59 @@
 MainMenuScene::MainMenuScene(
     SceneManager& sceneManager,
     sf::RenderWindow& window,
-    GameManager& gameManager
+    GameManager& gameManager,
+    int levelsNumber
 ) : 
     Scene(window),
-
     sceneManager(sceneManager),
     gameManager(gameManager),
-
-    playBtn(Button(sf::Vector2f(300, 500), sf::Vector2f(200, 50), "Play")),
-    exitBtn(Button(sf::Vector2f(300, 575), sf::Vector2f(200, 50), "Exit")),
-
-    title(Label(65, "Arkanoid")),
-
-    lvlBtn1(Button(sf::Vector2f(300, 300), sf::Vector2f(200, 50), "Level 1")),
-    lvlBtn2(Button(sf::Vector2f(300, 365), sf::Vector2f(200, 50), "Level 2"))
+    exitBtn(Button(sf::Vector2f(300, 725), sf::Vector2f(200, 50), "Exit")),
+    title(Label(65, "Arkanoid"))
 {
     title.setPosition(sf::Vector2f(300, 100));
 
-    lvlBtn1.setCallback(std::bind(&MainMenuScene::startLevel, this, "lvl-1"));
-    lvlBtn2.setCallback(std::bind(&MainMenuScene::startLevel, this, "lvl-2"));
+    for (int i = 0; i < levelsNumber; i++)
+    {
+        int yPos = 300.f + i * 65.f;
+        std::string displatName = "Level " + std::to_string(i + 1);
+        Button btn(sf::Vector2f(300, yPos), sf::Vector2f(200, 50), displatName);
 
-    playBtn.setCallback(std::bind(&MainMenuScene::startGame, this));
+        std::string lvlName = "lvl-" + std::to_string(i + 1);
+        btn.setCallback(std::bind(&MainMenuScene::startLevel, this, lvlName));
+
+        lvlBtns.push_back(btn);
+    }
+
     exitBtn.setCallback(std::bind(&MainMenuScene::exit, this));
 }
 void MainMenuScene::draw(sf::RenderWindow& window)
 {
-    lvlBtn1.draw(window);
-    lvlBtn2.draw(window);
+    for (Button& lvlBtn : lvlBtns)
+    {
+        lvlBtn.draw(window);
+    }
 
     title.draw(window);
-    //playBtn.draw(window);
     exitBtn.draw(window);
 }
 
 void MainMenuScene::update(float dt)
 {
-    lvlBtn1.update(window);
-    lvlBtn2.update(window);
+    for (Button& lvlBtn : lvlBtns)
+    {
+        lvlBtn.update(window);
+    }
 
-    playBtn.update(window);
     exitBtn.update(window);
 }
 
 void MainMenuScene::handleEvent(sf::Event& event)
 {
-    lvlBtn1.handleEvent(event);
-    lvlBtn2.handleEvent(event);
+    for (Button& lvlBtn : lvlBtns)
+    {
+        lvlBtn.handleEvent(event);
+    }
 
-    playBtn.handleEvent(event);
     exitBtn.handleEvent(event);
 }
 

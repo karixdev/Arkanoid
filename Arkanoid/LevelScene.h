@@ -42,5 +42,6 @@ private:
 
 	const float LOSE_LINE_HEIGHT = 760.f;
 	bool checkForLose(Ball& ball);
+	bool checkForWin();
 };
 

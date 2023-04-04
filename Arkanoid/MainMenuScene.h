@@ -4,14 +4,16 @@
 #include "SceneManager.h"
 #include "Label.h"
 #include "GameManager.h"
+#include <vector>
 
 class MainMenuScene : public Scene
 {
 public:
 	MainMenuScene(
-		SceneManager& sceneManager, 
+		SceneManager& sceneManager,
 		sf::RenderWindow& window,
-		GameManager& gameManager
+		GameManager& gameManager,
+		int levelsNumber
 	);
 
 	void draw(sf::RenderWindow& window) override;
@@ -26,10 +28,7 @@ private:
 
 	Label title;
 
-	Button lvlBtn1;
-	Button lvlBtn2;
-
-	Button playBtn;
+	std::vector<Button> lvlBtns;
 	Button exitBtn;
 
 	GameManager& gameManager;

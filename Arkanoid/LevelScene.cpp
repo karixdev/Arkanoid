@@ -49,6 +49,12 @@ void LevelScene::update(float dt)
         brick.descreaseLives();
     }
 
+    if (checkForWin())
+    {
+        reset();
+        sceneManager.switchScene("win");
+    }
+
     ball.handleCollision(paddle);
 
     gameManager.update(dt);
@@ -94,4 +100,19 @@ void LevelScene::reset()
 bool LevelScene::checkForLose(Ball& ball)
 {
     return ball.getPosition().y + 2.f * ball.getRadius() > LOSE_LINE_HEIGHT;
+}
+
+bool LevelScene::checkForWin()
+{
+    int destroyedBlocksCount = 0;
+
+    for (const Brick& brick : bricks)
+    {
+        if (brick.getLives() == 0)
+        {
+            destroyedBlocksCount++;
+        }
+    }
+
+    return destroyedBlocksCount == bricks.size();
 }

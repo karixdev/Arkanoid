@@ -31,10 +31,27 @@ int main()
     ));
 
     sceneManager.addScene("main-menu", std::make_unique<MainMenuScene>(
-        sceneManager, window, gameManager));
+        sceneManager, 
+        window, 
+        gameManager, 
+        5
+    ));
 
     sceneManager.addScene("lose", std::make_unique<EndGameScene>(
-        window, sceneManager, gameManager, "You lose!", sf::Color::Red));
+        window, 
+        sceneManager,
+        gameManager, 
+        "You lose!", 
+        sf::Color::Red
+    ));
+
+    sceneManager.addScene("win", std::make_unique<EndGameScene>(
+        window,
+        sceneManager,
+        gameManager,
+        "You lose!",
+        sf::Color::Green
+    ));
 
     sceneManager.switchScene("main-menu");
 
