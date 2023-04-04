@@ -59,12 +59,6 @@ void MainMenuScene::start()
 {
 }
 
-void MainMenuScene::startGame()
-{
-    gameManager.setActiveLevel("lvl-1");
-    sceneManager.switchScene("lvl-1");
-}
-
 void MainMenuScene::exit()
 {
     window.close();

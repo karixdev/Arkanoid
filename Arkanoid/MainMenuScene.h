@@ -34,9 +34,7 @@ private:
 
 	GameManager& gameManager;
 
-	void startGame();
-	void exit();
-
 	void startLevel(std::string levelName);
+	void exit();
 };
 
