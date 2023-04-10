@@ -148,12 +148,12 @@ sf::FloatRect Ball::getGlobalBounds() const
 	return shape.getGlobalBounds();
 }
 
-bool Ball::canMoveLeft()
+bool Ball::canMoveLeft() const
 {
 	return shape.getPosition().x > LEFT_SIDE_BOUNDARY;
 }
 
-bool Ball::canMoveRight()
+bool Ball::canMoveRight() const
 {
 
 	return shape.getPosition().x < RIGHT_SIDE_BOUNDARY;

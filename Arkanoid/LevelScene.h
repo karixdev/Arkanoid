@@ -40,7 +40,7 @@ private:
 
 	std::vector<Brick> bricks;
 
-	const float LOSE_LINE_HEIGHT = 760.f;
+	const float LOSE_LINE_HEIGHT = 770.f;
 	bool checkForLose(Ball& ball);
 	bool checkForWin();
 };

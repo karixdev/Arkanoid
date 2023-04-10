@@ -51,7 +51,7 @@ void Button::setCallback(std::function<void()> callback)
 	this->callback = callback;
 }
 
-bool Button::contains(const sf::Vector2f& point)
+bool Button::contains(const sf::Vector2f& point) const
 {
 	return shape.getGlobalBounds().contains(point);
 }

@@ -29,8 +29,8 @@ private:
 	void beforeStartMovement(float dt);
 	void afterStartMovement(float dt);
 
-	bool canMoveLeft();
-	bool canMoveRight();
+	bool canMoveLeft() const;
+	bool canMoveRight() const;
 
 private:
 	sf::CircleShape shape;

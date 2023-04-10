@@ -20,7 +20,7 @@ private:
 
     Label label;
 
-    bool contains(const sf::Vector2f& point);
+    bool contains(const sf::Vector2f& point) const;
 
     std::function<void()> callback;
 
