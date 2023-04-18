@@ -1,5 +1,6 @@
 #include "LevelEditorScene.h"
 #include <functional>
+#include "GridLayoutConfig.h"
 
 LevelEditorScene::LevelEditorScene(
 	sf::RenderWindow& window,
@@ -51,9 +52,9 @@ void LevelEditorScene::handleEvent(sf::Event& event)
 
 void LevelEditorScene::start()
 {
-	for (std::size_t i = 0; i < 6; ++i)
+	for (std::size_t i = 0; i < GridLayoutConfig::ROW_NUM; ++i)
 	{
-		for (std::size_t j = 0; j < 11; ++j)
+		for (std::size_t j = 0; j < GridLayoutConfig::COLUMN_NUM; ++j)
 		{
 			float posX = j * (BRICK_MARGIN + BRICK_WIDTH) + WINDOW_MARGIN;
 			float posY = i * (BRICK_MARGIN + BRICK_HEIGHT) + WINDOW_MARGIN + 90.f;
@@ -73,21 +74,15 @@ void LevelEditorScene::play()
 	std::vector<std::vector<int>> config;
 
 	int k = 0;
-	for (int rowIdx = 0; rowIdx < 6; ++rowIdx)
+	for (int rowIdx = 0; rowIdx < GridLayoutConfig::ROW_NUM; ++rowIdx)
 	{
 		std::vector<int> row;
-		for (int columnIdx = 0; columnIdx < 11; ++columnIdx)
+		for (int columnIdx = 0; columnIdx < GridLayoutConfig::COLUMN_NUM; ++columnIdx)
 		{
 			BrickPlaceholder placeholder = placeholders.at(k++);
 
-			if (placeholder.isFilled())
-			{
-				row.push_back(1);
-			}
-			else
-			{
-				row.push_back(0);
-			}
+			int lives = placeholder.getLives();
+			row.push_back(lives);
 		}
 
 		config.push_back(row);

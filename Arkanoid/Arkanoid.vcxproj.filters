@@ -114,6 +114,9 @@
     <ClCompile Include="FileBrickConfig.cpp">
       <Filter>Pliki źródłowe\Levels</Filter>
     </ClCompile>
+    <ClCompile Include="GridHelper.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneManager.h">
@@ -175,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="FileBrickConfig.h">
       <Filter>Pliki nagłówkowe\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="GridLayoutConfig.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="GridHelper.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
