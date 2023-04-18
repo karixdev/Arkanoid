@@ -72,9 +72,6 @@
     <ClCompile Include="Brick.cpp">
       <Filter>Pliki źródłowe\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="BrickConfigLoader.cpp">
-      <Filter>Pliki źródłowe\Levels</Filter>
-    </ClCompile>
     <ClCompile Include="Label.cpp">
       <Filter>Pliki źródłowe\GUI</Filter>
     </ClCompile>
@@ -105,6 +102,18 @@
     <ClCompile Include="BrickPlaceholder.cpp">
       <Filter>Pliki źródłowe\Editor</Filter>
     </ClCompile>
+    <ClCompile Include="BrickConfigManager.cpp">
+      <Filter>Pliki źródłowe\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="InMemoryBrickConfig.cpp">
+      <Filter>Pliki źródłowe\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="BrickConfigLoader.cpp">
+      <Filter>Pliki źródłowe\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="FileBrickConfig.cpp">
+      <Filter>Pliki źródłowe\Levels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneManager.h">
@@ -124,9 +133,6 @@
     </ClInclude>
     <ClInclude Include="Brick.h">
       <Filter>Pliki nagłówkowe\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="BrickConfigLoader.h">
-      <Filter>Pliki nagłówkowe\Levels</Filter>
     </ClInclude>
     <ClInclude Include="Label.h">
       <Filter>Pliki nagłówkowe\GUI</Filter>
@@ -157,6 +163,18 @@
     </ClInclude>
     <ClInclude Include="BrickPlaceholder.h">
       <Filter>Pliki nagłówkowe\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickConfigManager.h">
+      <Filter>Pliki nagłówkowe\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="InMemoryBrickConfig.h">
+      <Filter>Pliki nagłówkowe\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickConfigLoader.h">
+      <Filter>Pliki nagłówkowe\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="FileBrickConfig.h">
+      <Filter>Pliki nagłówkowe\Levels</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
