@@ -3,32 +3,35 @@
 BrickPlaceholder::BrickPlaceholder(
 	const sf::Vector2f& position, 
 	const sf::Vector2f& size
-)
+) : Brick(position, size, 0)
 {
-	shape.setPosition(position);
-	shape.setSize(size);
-
 	shape.setFillColor(sf::Color::Transparent);
-	shape.setOutlineThickness(OUTLINE_THICKNESS);
-	shape.setOutlineColor(OUTLINE_COLOR);
+	label.setText("");
 }
 
 void BrickPlaceholder::handleEvent(sf::Event& event)
 {
 	if (isButtonPressed(event, sf::Mouse::Button::Left))
 	{
+		int lives = getLives();
+		if (lives <= 1)
+		{
+			setLives(lives + 1);
+		}
+		else
+		{
+			setLives(1);
+		}
+
 		shape.setFillColor(sf::Color::Yellow);
 	}
 
 	if (isButtonPressed(event, sf::Mouse::Button::Right))
 	{
+		setLives(0);
+		label.setText("");
 		shape.setFillColor(sf::Color::Transparent);
 	}
-}
-
-void BrickPlaceholder::draw(sf::RenderWindow& window)
-{
-	window.draw(shape);
 }
 
 bool BrickPlaceholder::isButtonPressed(sf::Event& event, sf::Mouse::Button button)

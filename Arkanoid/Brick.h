@@ -20,8 +20,13 @@ public:
 
 	void reset();
 
-private:
+protected:
 	sf::RectangleShape shape;
+	Label label;
+
+	void setLives(int lives);
+
+private:
 
 	const float OUTLINE_THICKNESS = -1.f;
 
@@ -29,8 +34,6 @@ private:
 
 	int initLives;
 	int lives;
-
-	Label label;
 
 	const sf::Color OUTLINE_COLOR = sf::Color::Black;
 };

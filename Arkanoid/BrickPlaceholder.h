@@ -1,7 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Brick.h"
 
-class BrickPlaceholder
+class BrickPlaceholder : public Brick
 {
 public:
 	BrickPlaceholder(
@@ -10,13 +11,10 @@ public:
 	);
 
 	void handleEvent(sf::Event& event);
-	void draw(sf::RenderWindow& window);
 
 	bool isFilled();
 
 private:
-	sf::RectangleShape shape;
-
 	bool isButtonPressed(sf::Event& event, sf::Mouse::Button button);
 
 	const float OUTLINE_THICKNESS = -1.f;

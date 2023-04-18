@@ -62,3 +62,9 @@ void Brick::reset()
 	label.setText(std::to_string(initLives));
 	isDestroyed = false;
 }
+
+void Brick::setLives(int lives)
+{
+	this->lives = lives;
+	label.setText(std::to_string(lives));
+}
