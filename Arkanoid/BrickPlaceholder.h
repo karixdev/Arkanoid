@@ -12,6 +12,8 @@ public:
 	void handleEvent(sf::Event& event);
 	void draw(sf::RenderWindow& window);
 
+	bool isFilled();
+
 private:
 	sf::RectangleShape shape;
 

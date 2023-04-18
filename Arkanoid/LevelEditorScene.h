@@ -4,12 +4,19 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "BrickPlaceholder.h"
+#include "BrickConfigManager.h"
+#include "SceneManager.h"
+#include "InMemoryBrickConfig.h"
 
 class LevelEditorScene :
     public Scene
 {
 public:
-	LevelEditorScene(sf::RenderWindow& window);
+	LevelEditorScene(
+		sf::RenderWindow& window,
+		SceneManager& sceneManager,
+		BrickConfigManager& brickConfigManager
+	);
 
 	void draw(sf::RenderWindow& window) override;
 	void update(float dt) override;
@@ -26,6 +33,12 @@ private:
 	const float BRICK_MARGIN = 0.f;
 	const float WINDOW_MARGIN = 10.f;
 
+	BrickConfigManager& brickConfigManager;
+	SceneManager& sceneManager;
+
 	std::vector<BrickPlaceholder> placeholders;
+
+	void play();
+	void exit();
 };
 

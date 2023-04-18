@@ -40,3 +40,8 @@ bool BrickPlaceholder::isButtonPressed(sf::Event& event, sf::Mouse::Button butto
 
 	return shape.getGlobalBounds().contains(mousePos);
 }
+
+bool BrickPlaceholder::isFilled()
+{
+	return shape.getFillColor() == sf::Color::Yellow;
+}
