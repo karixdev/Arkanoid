@@ -30,8 +30,8 @@ private:
 
 	GamePanel panel;
 
-	const float BRICK_WIDTH = 58.f;
-	const float BRICK_HEIGHT = 58.f;
+	const float BRICK_WIDTH = 52.72f;
+	const float BRICK_HEIGHT = 52.72f;
 	const float BRICK_MARGIN = 0.f;
 	const float WINDOW_MARGIN = 10.f;
 
