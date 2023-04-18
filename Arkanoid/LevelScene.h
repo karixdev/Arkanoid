@@ -7,6 +7,7 @@
 #include "GameManager.h"
 #include "SceneManager.h"
 #include "Scene.h"
+#include "BrickConfigManager.h"
 
 class LevelScene : public Scene 
 {
@@ -15,7 +16,24 @@ public:
 		sf::RenderWindow& window,
 		std::string filename,
 		GameManager& gameManager,
-		SceneManager& sceneManager
+		SceneManager& sceneManager,
+		BrickConfigManager& brickConfigManager,
+		bool isInMemory
+	);
+
+	LevelScene(
+		sf::RenderWindow& window,
+		GameManager& gameManager,
+		SceneManager& sceneManager,
+		BrickConfigManager& brickConfigManager
+	);
+
+	LevelScene(
+		sf::RenderWindow& window,
+		GameManager& gameManager,
+		SceneManager& sceneManager,
+		BrickConfigManager& brickConfigManager,
+		std::string filename
 	);
 
 	void draw(sf::RenderWindow& window) override;
@@ -35,8 +53,12 @@ private:
 	const float BRICK_MARGIN = 0.f;
 	const float WINDOW_MARGIN = 10.f;
 
+	bool isInMemory = false;
+
 	SceneManager& sceneManager;
 	GameManager& gameManager;
+
+	BrickConfigManager& brickConfigManager;
 
 	std::vector<Brick> bricks;
 

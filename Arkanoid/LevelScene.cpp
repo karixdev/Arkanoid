@@ -5,11 +5,48 @@ LevelScene::LevelScene(
     sf::RenderWindow& window,
     std::string filename, 
     GameManager& gameManager,
-    SceneManager& sceneManager
+    SceneManager& sceneManager,
+    BrickConfigManager& brickConfigManager,
+    bool isInMemory
 ) : Scene(window),
     filename(filename),
     gameManager(gameManager),
-    sceneManager(sceneManager)
+    sceneManager(sceneManager),
+    brickConfigManager(brickConfigManager),
+    isInMemory(isInMemory)
+{
+}
+
+LevelScene::LevelScene(
+    sf::RenderWindow& window, 
+    GameManager& gameManager, 
+    SceneManager& sceneManager, 
+    BrickConfigManager& brickConfigManager
+) : LevelScene(
+        window,
+        "",
+        gameManager,
+        sceneManager,
+        brickConfigManager,
+        true
+    )
+{
+}
+
+LevelScene::LevelScene(
+    sf::RenderWindow& window,
+    GameManager& gameManager,
+    SceneManager& sceneManager,
+    BrickConfigManager& brickConfigManager,
+    std::string filename
+) : LevelScene(
+    window,
+    filename,
+    gameManager,
+    sceneManager,
+    brickConfigManager,
+    false
+)
 {
 }
 
@@ -69,7 +106,17 @@ void LevelScene::start()
     if (!bricks.empty()) return;
 
     BrickConfigLoader loader;
-    std::vector<std::vector<int>> config = loader.load(filename);
+
+    std::vector<std::vector<int>> config;
+
+    if (isInMemory)
+    {
+        config = brickConfigManager.getInMemoryConfig().load();
+    }
+    else
+    {
+        config = brickConfigManager.getFileConfig().load(filename);
+    }
 
     for (std::size_t i = 0; i < config.size(); ++i)
     {
