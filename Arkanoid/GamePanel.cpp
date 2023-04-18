@@ -2,7 +2,7 @@
 #include "WindowConfig.h"
 
 GamePanel::GamePanel() :
-	pointsLabel(Label(40.f, "0"))
+	pointsLabel(Label(40.f, "Points: 0"))
 {
 	stripe.setFillColor(sf::Color::Black);
 	stripe.setSize(sf::Vector2f(WindowConfig::WINDOW_WIDTH, 10.f));
@@ -19,6 +19,6 @@ void GamePanel::draw(sf::RenderWindow& window)
 
 void GamePanel::setPoints(int points)
 {
-	pointsLabel.setText(std::to_string(points));
+	pointsLabel.setText("Points: " + std::to_string(points));
 	pointsLabel.setPosition(sf::Vector2f(300.f, 40.f));
 }
