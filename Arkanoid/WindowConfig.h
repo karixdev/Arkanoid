@@ -2,6 +2,6 @@
 class WindowConfig
 {
 public:
-	static const float WINDOW_HEIGHT;
-	static const float WINDOW_WIDTH;
+	static const int WINDOW_HEIGHT = 800;
+	static const int WINDOW_WIDTH = 600;
 };

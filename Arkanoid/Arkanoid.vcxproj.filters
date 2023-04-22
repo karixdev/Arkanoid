@@ -78,9 +78,6 @@
     <ClCompile Include="FontManager.cpp">
       <Filter>Pliki źródłowe\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="WindowConfig.cpp">
-      <Filter>Pliki źródłowe\Configs</Filter>
-    </ClCompile>
     <ClCompile Include="Ball.cpp">
       <Filter>Pliki źródłowe\GameObjects</Filter>
     </ClCompile>
