@@ -96,5 +96,6 @@ void LevelEditorScene::play()
 
 void LevelEditorScene::exit()
 {
+	placeholders.clear();
 	sceneManager.switchScene("main-menu");
 }
