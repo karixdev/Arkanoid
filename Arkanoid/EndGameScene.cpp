@@ -54,12 +54,13 @@ void EndGameScene::start()
 
 void EndGameScene::playAgain()
 {
+
 	sceneManager.switchScene(gameManager.getActiveLevel());
-	gameManager.reset();
+	gameManager.reset(false);
 }
 
 void EndGameScene::goToMainMenu()
 {
 	sceneManager.switchScene("main-menu");
-	gameManager.reset();
+	gameManager.reset(true);
 }
