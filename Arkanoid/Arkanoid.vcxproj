@@ -153,7 +153,6 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Brick.cpp" />
-    <ClCompile Include="BrickConfigLoader.cpp" />
     <ClCompile Include="BrickConfigManager.cpp" />
     <ClCompile Include="BrickPlaceholder.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -176,7 +175,6 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Brick.h" />
-    <ClInclude Include="BrickConfigLoader.h" />
     <ClInclude Include="BrickConfigManager.h" />
     <ClInclude Include="BrickPlaceholder.h" />
     <ClInclude Include="Button.h" />

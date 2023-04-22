@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "Brick.h"
-#include "BrickConfigLoader.h"
 #include "Paddle.h"
 #include "Ball.h"
 #include "GameManager.h"

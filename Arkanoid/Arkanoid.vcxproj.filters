@@ -108,9 +108,6 @@
     <ClCompile Include="InMemoryBrickConfig.cpp">
       <Filter>Pliki źródłowe\Levels</Filter>
     </ClCompile>
-    <ClCompile Include="BrickConfigLoader.cpp">
-      <Filter>Pliki źródłowe\Levels</Filter>
-    </ClCompile>
     <ClCompile Include="FileBrickConfig.cpp">
       <Filter>Pliki źródłowe\Levels</Filter>
     </ClCompile>
@@ -168,9 +165,6 @@
       <Filter>Pliki nagłówkowe\Levels</Filter>
     </ClInclude>
     <ClInclude Include="InMemoryBrickConfig.h">
-      <Filter>Pliki nagłówkowe\Levels</Filter>
-    </ClInclude>
-    <ClInclude Include="BrickConfigLoader.h">
       <Filter>Pliki nagłówkowe\Levels</Filter>
     </ClInclude>
     <ClInclude Include="FileBrickConfig.h">

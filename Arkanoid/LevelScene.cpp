@@ -105,8 +105,6 @@ void LevelScene::start()
 {
     if (!bricks.empty()) return;
 
-    BrickConfigLoader loader;
-
     std::vector<std::vector<int>> config;
 
     if (isInMemory)
