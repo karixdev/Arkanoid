@@ -111,6 +111,9 @@
     <ClCompile Include="FileBrickConfig.cpp">
       <Filter>Pliki źródłowe\Levels</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneManager.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="GridLayoutConfig.h">
       <Filter>Pliki nagłówkowe\Configs</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
