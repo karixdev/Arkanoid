@@ -162,7 +162,6 @@
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GamePanel.cpp" />
-    <ClCompile Include="GridHelper.cpp" />
     <ClCompile Include="InMemoryBrickConfig.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="LevelEditorScene.cpp" />
@@ -186,7 +185,6 @@
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GamePanel.h" />
-    <ClInclude Include="GridHelper.h" />
     <ClInclude Include="GridLayoutConfig.h" />
     <ClInclude Include="InMemoryBrickConfig.h" />
     <ClInclude Include="Label.h" />

@@ -1,10 +1,6 @@
 #include "BrickConfigLoader.h"
 #include <fstream>
 
-BrickConfigLoader::BrickConfigLoader()
-{
-}
-
 std::vector<std::vector<int>> BrickConfigLoader::load(std::string filename) const
 {
 	std::vector<std::vector<int>> bricks;
