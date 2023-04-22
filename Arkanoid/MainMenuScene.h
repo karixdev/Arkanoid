@@ -33,8 +33,10 @@ private:
 
 	std::vector<Button> lvlBtns;
 	Button exitBtn;
+	Button lvlEditorBtn;
 
 	void startLevel(std::string levelName);
 	void exit();
+	void levelEditor();
 };
 

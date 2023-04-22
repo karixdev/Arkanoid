@@ -24,4 +24,3 @@ private:
 	Scene* currentScene = nullptr;
 	std::unordered_map<std::string, std::unique_ptr<Scene>> scenes;
 };
-

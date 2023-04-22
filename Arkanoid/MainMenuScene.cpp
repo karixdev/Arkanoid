@@ -12,10 +12,12 @@ MainMenuScene::MainMenuScene(
     gameManager(gameManager),
     exitBtn(Button(sf::Vector2f(300, 725), sf::Vector2f(200, 50), "Exit")),
     title(Label(65, "Arkanoid")),
-    levelsNumber(levelsNumber)
+    levelsNumber(levelsNumber),
+    lvlEditorBtn(Button(sf::Vector2f(300, 500), sf::Vector2f(200, 65), "Level\nEditor"))
 {
     title.setPosition(sf::Vector2f(300, 100));
     exitBtn.setCallback(std::bind(&MainMenuScene::exit, this));
+    lvlEditorBtn.setCallback(std::bind(&MainMenuScene::levelEditor, this));
 }
 void MainMenuScene::draw(sf::RenderWindow& window)
 {
@@ -26,6 +28,7 @@ void MainMenuScene::draw(sf::RenderWindow& window)
 
     title.draw(window);
     exitBtn.draw(window);
+    lvlEditorBtn.draw(window);
 }
 
 void MainMenuScene::update(float dt)
@@ -36,6 +39,7 @@ void MainMenuScene::update(float dt)
     }
 
     exitBtn.update(window);
+    lvlEditorBtn.update(window);
 }
 
 void MainMenuScene::handleEvent(sf::Event& event)
@@ -46,6 +50,7 @@ void MainMenuScene::handleEvent(sf::Event& event)
     }
 
     exitBtn.handleEvent(event);
+    lvlEditorBtn.handleEvent(event);
 }
 
 void MainMenuScene::start()
@@ -74,4 +79,10 @@ void MainMenuScene::startLevel(std::string levelName)
 {
     gameManager.setActiveLevel(levelName);
     sceneManager.switchScene(levelName);
+}
+
+void MainMenuScene::levelEditor()
+{
+    gameManager.setActiveLevel("custom-level");
+    sceneManager.switchScene("editor");
 }
