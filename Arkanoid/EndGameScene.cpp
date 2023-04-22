@@ -26,7 +26,7 @@ EndGameScene::EndGameScene(
 	scoreLabel.setPosition(sf::Vector2f(300.f, 200.f));
 }
 
-void EndGameScene::draw(sf::RenderWindow& window)
+void EndGameScene::draw()
 {
 	messageLabel.draw(window);
 	playAgainBtn.draw(window);

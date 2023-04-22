@@ -7,6 +7,7 @@
 #include "BrickConfigManager.h"
 #include "SceneManager.h"
 #include "InMemoryBrickConfig.h"
+#include "GamePanel.h"
 
 class LevelEditorScene :
     public Scene
@@ -18,7 +19,7 @@ public:
 		BrickConfigManager& brickConfigManager
 	);
 
-	void draw(sf::RenderWindow& window) override;
+	void draw() override;
 	void update(float dt) override;
 	void handleEvent(sf::Event& event) override;
 	void start() override;
@@ -37,6 +38,8 @@ private:
 	SceneManager& sceneManager;
 
 	std::vector<BrickPlaceholder> placeholders;
+
+	GamePanel gamePanel;
 
 	void play();
 	void exit();

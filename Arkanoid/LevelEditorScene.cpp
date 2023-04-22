@@ -21,11 +21,12 @@ LevelEditorScene::LevelEditorScene(
 	backBtn.setCallback(std::bind(&LevelEditorScene::exit, this));
 }
 
-void LevelEditorScene::draw(sf::RenderWindow& window)
+void LevelEditorScene::draw()
 {
 	backBtn.draw(window);
 	playBtn.draw(window);
 	window.draw(line);
+	gamePanel.draw(window);
 
 	for (BrickPlaceholder& placeholder : placeholders)
 	{

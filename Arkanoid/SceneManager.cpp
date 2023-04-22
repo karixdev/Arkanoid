@@ -21,7 +21,7 @@ void SceneManager::draw()
 {
 	if (currentScene)
 	{
-		currentScene->draw(window);
+		currentScene->draw();
 	}
 }
 

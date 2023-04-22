@@ -50,7 +50,7 @@ LevelScene::LevelScene(
 {
 }
 
-void LevelScene::draw(sf::RenderWindow& window)
+void LevelScene::draw()
 {
 	for (Brick& brick : bricks)
 	{

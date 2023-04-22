@@ -19,7 +19,7 @@ MainMenuScene::MainMenuScene(
     exitBtn.setCallback(std::bind(&MainMenuScene::exit, this));
     lvlEditorBtn.setCallback(std::bind(&MainMenuScene::levelEditor, this));
 }
-void MainMenuScene::draw(sf::RenderWindow& window)
+void MainMenuScene::draw()
 {
     for (Button& lvlBtn : lvlBtns)
     {
