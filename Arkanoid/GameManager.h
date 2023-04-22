@@ -20,7 +20,7 @@ public:
 	void setActiveLevel(std::string levelName);
 	std::string getActiveLevel() const;
 
-	void reset();
+	void reset(bool resetLvlName);
 
 	Ball& getBall();
 	Paddle& getPaddle();

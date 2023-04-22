@@ -64,7 +64,7 @@ void LevelScene::update(float dt)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
-        gameManager.reset();
+        gameManager.reset(true);
         sceneManager.switchScene("main-menu");
     }
 

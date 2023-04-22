@@ -41,7 +41,7 @@ std::string GameManager::getActiveLevel() const
 	return activeLevelName;
 }
 
-void GameManager::reset()
+void GameManager::reset(bool resetLvlName)
 {
 	points = 0;
 	panel.setPoints(0);
@@ -49,7 +49,10 @@ void GameManager::reset()
 	ball.reset();
 	paddle.reset();
 
-	activeLevelName = "";
+	if (resetLvlName)
+	{
+		activeLevelName = "";
+	}
 }
 
 Ball& GameManager::getBall()
