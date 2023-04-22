@@ -49,7 +49,7 @@ void Game::init()
         brickConfigManager
     ));
 
-    for (int i = 0; i < levelsFilenames.size(); ++i)
+    for (size_t i = 0; i < levelsFilenames.size(); ++i)
     {
         std::string name = "lvl-" + std::to_string(i + 1);
         std::string filename = levelsFilenames.at(i);
