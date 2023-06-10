@@ -9,6 +9,7 @@ Game::Game(std::vector<std::string> levelsFilenames) :
 	sceneManager(SceneManager(window)),
 	levelsFilenames(levelsFilenames)
 {
+    window.setTitle(TITLE);
 }
 
 void Game::init()
