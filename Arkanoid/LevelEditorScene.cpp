@@ -75,6 +75,8 @@ void LevelEditorScene::play()
 	std::vector<std::vector<int>> config;
 
 	int k = 0;
+	int blankBricks = 0;
+
 	for (int rowIdx = 0; rowIdx < GridLayoutConfig::ROW_NUM; ++rowIdx)
 	{
 		std::vector<int> row;
@@ -83,16 +85,25 @@ void LevelEditorScene::play()
 			BrickPlaceholder placeholder = placeholders.at(k++);
 
 			int lives = placeholder.getLives();
+
+			if (lives == 0)
+			{
+				++blankBricks;
+			}
+
 			row.push_back(lives);
 		}
 
 		config.push_back(row);
 	}
 
-	placeholders.clear();
-	brickConfigManager.getInMemoryConfig().setBrickConfig(config);
+	if (blankBricks != GridLayoutConfig::ROW_NUM * GridLayoutConfig::COLUMN_NUM)
+	{
+		placeholders.clear();
+		brickConfigManager.getInMemoryConfig().setBrickConfig(config);
 
-	sceneManager.switchScene("custom-level");
+		sceneManager.switchScene("custom-level");
+	}
 }
 
 void LevelEditorScene::exit()
