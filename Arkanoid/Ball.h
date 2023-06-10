@@ -3,11 +3,13 @@
 #include "Paddle.h"
 #include "Brick.h"
 #include "WindowConfig.h"
+#include <random>
 
 class Ball
 {
 public:
 	Ball();
+	~Ball();
 
 	void draw(sf::RenderWindow& window);
 	void update(float dt);
@@ -35,7 +37,8 @@ private:
 private:
 	sf::CircleShape shape;
 
-	sf::Vector2f velocity = { .4f, -.4f };
+	const sf::Vector2f INIT_VELOCITY = { .4f, -.4f };
+	sf::Vector2f velocity = INIT_VELOCITY;
 
 	const float RADIUS = 10.f;
 	const sf::Color COLOR = sf::Color::Red;
@@ -55,5 +58,15 @@ private:
 
 	const float LEFT_SIDE_BOUNDARY = 50.f;
 	const float RIGHT_SIDE_BOUNDARY = 530.f;
-};
 
+	const int MAX_ANGLE = 60.f;
+	const int MIN_ANGLE = 20.f;
+	const int ANGLE_OFFSET = 40.f;
+
+	sf::Vector2f calculateRandomReflectionVector() const;
+
+	std::random_device* rd;
+	std::mt19937* gen;
+
+	const float SPEED_MULTIPLICATION_FACTOR = 1.3f;
+};

@@ -2,6 +2,9 @@
 
 #include "Ball.h"
 #include <math.h>
+#include <iostream>
+
+#define _USE_MATH_DEFINES
 
 Ball::Ball()
 {
@@ -12,6 +15,15 @@ Ball::Ball()
 
 	shape.setOutlineThickness(OUTLINE_THICKNESS);
 	shape.setOutlineColor(OUTLINE_COLOR);
+
+	rd = new std::random_device;
+	gen = new std::mt19937((*rd)());
+}
+
+Ball::~Ball()
+{
+	delete gen;
+	delete rd;
 }
 
 void Ball::draw(sf::RenderWindow& window)
@@ -84,25 +96,20 @@ void Ball::handleCollision(const Paddle& paddle)
 
 	if (!shape.getGlobalBounds().intersects(paddle.getGlobalBounds(), overlap)) return;
 
-	float ballPosition = shape.getPosition().x;
-	float paddlePosition = paddle.getPosition().x;
-	float paddleWidth = paddle.getGlobalBounds().width;
+	shape.setPosition(getPosition().x, paddle.getPosition().y - RADIUS * 2 - 2);
 
-	float overlapLeft = ballPosition - (paddlePosition - paddleWidth / 2);
-	float overlapRight = (paddlePosition + paddleWidth / 2) - ballPosition;
+	sf::Vector2f rndVector = calculateRandomReflectionVector();
 
-	bool ballFromLeft = overlapLeft < overlapRight;
-
-	if (ballFromLeft)
+	if (getPosition().x == paddle.getPosition().x + paddle.getGlobalBounds().width / 2.f)
 	{
-		velocity.x = -abs(velocity.x);
+		rndVector = sf::Vector2f(rndVector.x * SPEED_MULTIPLICATION_FACTOR, rndVector.y);
 	}
 	else
 	{
-		velocity.x = abs(velocity.x);
+		rndVector = sf::Vector2f(rndVector.x, rndVector.y * SPEED_MULTIPLICATION_FACTOR);
 	}
 
-	velocity.y = -abs(velocity.y);
+	velocity = rndVector;
 }
 
 bool Ball::handleCollision(Brick& brick)
@@ -118,7 +125,6 @@ bool Ball::handleCollision(Brick& brick)
 
 	float ballRadius = shape.getRadius();
 
-	// Find the side of the brick that the ball collided with
 	float overlapLeft = ballPos.x + ballRadius - brickPos.x;
 	float overlapRight = brickPos.x + brickSize.x - (ballPos.x - ballRadius);
 	float overlapTop = ballPos.y + ballRadius - brickPos.y;
@@ -130,7 +136,6 @@ bool Ball::handleCollision(Brick& brick)
 	float minOverlapX = ballFromLeft ? overlapLeft : overlapRight;
 	float minOverlapY = ballFromTop ? overlapTop : overlapBottom;
 
-	// Update ball velocity based on the side of the collision
 	if (abs(minOverlapX) < abs(minOverlapY))
 	{
 		velocity.x = ballFromLeft ? -abs(velocity.x) : abs(velocity.x);
@@ -159,6 +164,29 @@ bool Ball::canMoveRight() const
 	return shape.getPosition().x < RIGHT_SIDE_BOUNDARY;
 }
 
+sf::Vector2f Ball::calculateRandomReflectionVector() const
+{
+	std::uniform_int_distribution<int> dist(MIN_ANGLE, MAX_ANGLE);
+
+	int angleDeg = dist(*gen);
+	angleDeg -= ANGLE_OFFSET;
+
+	float angleRad = angleDeg * M_PI / 180.f;
+
+	float x1 = INIT_VELOCITY.x;
+	float y1 = -INIT_VELOCITY.y;
+
+	float x2 = x1 * std::cos(angleRad) + y1 * std::sin(angleRad);
+	float y2 = -x1 * std::sin(angleRad) + y1 * std::cos(angleRad);
+
+	if (velocity.x < 0)
+	{
+		x2 *= -1.f;
+	}
+
+	return sf::Vector2f(x2, -y2);
+}
+
 float Ball::getRadius() const
 {
 	return RADIUS;
@@ -172,5 +200,6 @@ sf::Vector2f Ball::getPosition() const
 void Ball::reset()
 {
 	shape.setPosition(INIT_POSITION);
+	velocity = INIT_VELOCITY;
 	hasStarted = false;
 }
