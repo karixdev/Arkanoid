@@ -100,7 +100,7 @@ void Ball::handleCollision(const Paddle& paddle)
 
 	sf::Vector2f rndVector = calculateRandomReflectionVector();
 
-	if (getPosition().x == paddle.getPosition().x + paddle.getGlobalBounds().width / 2.f)
+	if (getPosition().x <= paddle.getPosition().x + paddle.getGlobalBounds().width / 2.f)
 	{
 		rndVector = sf::Vector2f(rndVector.x * SPEED_MULTIPLICATION_FACTOR, rndVector.y);
 	}

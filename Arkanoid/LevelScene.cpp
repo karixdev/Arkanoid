@@ -65,6 +65,12 @@ void LevelScene::update(float dt)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
         gameManager.reset(true);
+
+        for (Brick& brick : bricks)
+        {
+            brick.reset();
+        }
+
         sceneManager.switchScene("main-menu");
     }
 
