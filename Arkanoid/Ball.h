@@ -9,7 +9,6 @@ class Ball
 {
 public:
 	Ball();
-	~Ball();
 
 	void draw(sf::RenderWindow& window);
 	void update(float dt);
@@ -65,8 +64,8 @@ private:
 
 	sf::Vector2f calculateRandomReflectionVector() const;
 
-	std::random_device* rd;
-	std::mt19937* gen;
+	std::shared_ptr<std::random_device> rd;
+	std::shared_ptr<std::mt19937> gen;
 
 	const float SPEED_MULTIPLICATION_FACTOR = 1.3f;
 };

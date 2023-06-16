@@ -16,14 +16,8 @@ Ball::Ball()
 	shape.setOutlineThickness(OUTLINE_THICKNESS);
 	shape.setOutlineColor(OUTLINE_COLOR);
 
-	rd = new std::random_device;
-	gen = new std::mt19937((*rd)());
-}
-
-Ball::~Ball()
-{
-	delete gen;
-	delete rd;
+	rd = std::make_shared<std::random_device>();
+	gen = std::make_shared<std::mt19937>((*rd.get())());
 }
 
 void Ball::draw(sf::RenderWindow& window)
@@ -168,7 +162,7 @@ sf::Vector2f Ball::calculateRandomReflectionVector() const
 {
 	std::uniform_int_distribution<int> dist(MIN_ANGLE, MAX_ANGLE);
 
-	int angleDeg = dist(*gen);
+	int angleDeg = dist(*gen.get());
 	angleDeg -= ANGLE_OFFSET;
 
 	float angleRad = angleDeg * M_PI / 180.f;
